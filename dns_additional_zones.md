@@ -17,7 +17,7 @@
       type master;
       file "/etc/bind/zones/reverse.<domainname>";
       allow-update { none; };
-};'''
+};```
 In _Reverse Lookup File_
 3. run `sudo nano /etc/bind/zones/reverse.<domainname>`
   - *change serial number*
