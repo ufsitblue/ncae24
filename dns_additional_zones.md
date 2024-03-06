@@ -19,9 +19,12 @@
       allow-update { none; };
 };```
 
-In _Reverse Lookup File_
+_For Reverse Lookup File_
+
 3. run `sudo nano /etc/bind/zones/reverse.<domainname>`
-  - *change serial number*
+  - *_change serial number_*
 new entry `scoreboard ip host information (e.g. 1.0)  IN PTR <subdomain.domainname>`
+
 4. run `sudo systemctl restart named`
+
 5. confirm with `nslookup <subdomain IP>`
