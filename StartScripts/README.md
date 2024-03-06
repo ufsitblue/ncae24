@@ -1,4 +1,5 @@
 # Using the scripts
+If using git: `sudo apt-get install git`, `sudo git clone https://github.com/ufsitblue/ncae24`
 Do `touch <script>` `chmod 700 <script` `nano <script>` and then copy paste the script into there. All scripts should be run with sudo permissions.
 
 ## Do this FIRST
