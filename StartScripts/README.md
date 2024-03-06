@@ -16,8 +16,10 @@ Do `touch <script>` `chmod 700 <script` `nano <script>` and then copy paste the 
     - `sudo userdel -r <user>`
 7. `cat /etc/group | grep 'adm\|root\|sudo'` to check groups
     - `deluser <user> <group>` to remove any sus group assignments
-8. Now you can do your stuff :)
-9. Run backup.sh when you want to backup your files `sudo ./backup.sh <ssh directory> <device name> -y`
+8. Run hunt.sh `sudo ./hunt.sh`
+    - This will alert you of any sus files. Whether they are truly threats will be up to your discretion. Any sus files should be deleted/changed manually.
+9. Now you can do your stuff :)
+10. Run backup.sh when you want to backup your files `sudo ./backup.sh <ssh directory> <device name> -y`
     - Make sure you have ssh key authentication working (backup device needs your working device's ssh keys), otherwise the ssh won't work in a script file
     - The device name should be unique for each device and helps us organize directories in the backup server
     - **Without** the -y flag, this script will compare changes between your local files and those in the backup. **With** the -y flag, it will also update the backup with your current files
