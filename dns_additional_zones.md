@@ -13,11 +13,13 @@
 ## Reverse Lookups
 1. (still in `/etc/bind` run `sudo nano named.conf.default-zones`
 2. New Entry:
+```
 zone <IP address (e.g. 20.172 in-addr.arpa" IN {
       type master;
       file "/etc/bind/zones/reverse.<domainname>";
       allow-update { none; };
- };```
+ };
+```
 
 _For Reverse Lookup File_
 
