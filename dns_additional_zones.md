@@ -1,6 +1,6 @@
 # **Ubuntu Machine as DNS server on the local network**
-Edit the 'etc/resolv.conf' file on internal Kali Device: use 'sudo nano /etc/resolv.conf'
-add the 'nameserver 192.168.<team_number>.2' line at the end
+1. Edit the 'etc/resolv.conf' file on internal Kali Device: use 'sudo nano /etc/resolv.conf'
+2. Add the 'nameserver 192.168.<team_number>.2' line at the end
 ## Configuring the Server to Resolve the Scoreboard
 **On the Server (Ubuntu Machine):** 'cd /etc/bind'
 run 'sudo nano zones/forward.<domainname>'
