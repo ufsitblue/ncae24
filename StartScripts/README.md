@@ -11,9 +11,13 @@ Do `touch <script>` `chmod 700 <script` `nano <script>` and then copy paste the 
 4. run pass.sh `sudo ./pass.sh <new passwd>`
     - Note that running the command **without** passwd argument just changes all the keys and secures ssh, running it **with** passwd argument will also reset all user passwds to that passwd
     - If there are any sus `/bin/bash` in `/etc/passwd` (not root or your user), deal with it
-6. `sudo visudo` to see if anyone has elevated privileges
-7. Clean up users
+5. `sudo visudo` to see if anyone has elevated privileges
+6. Clean up users
     - `sudo userdel -r <user>`
-8. `cat /etc/group | grep 'adm\|root\|sudo'` to check groups
+7. `cat /etc/group | grep 'adm\|root\|sudo'` to check groups
     - `deluser <user> <group>` to remove any sus group assignments
-9. Now you can do your stuff :)
+8. Now you can do your stuff :)
+9. Run backup.sh when you want to backup your files `sudo ./backup.sh <ssh directory> <device name> -y`
+    - Make sure you have ssh key authentication working (backup device needs your working device's ssh keys), otherwise the ssh won't work in a script file
+    - The device name should be unique for each device and helps us organize directories in the backup server
+    - **Without** the -y flag, this script will compare changes between your local files and those in the backup. **With** the -y flag, it will also update the backup with your current files
