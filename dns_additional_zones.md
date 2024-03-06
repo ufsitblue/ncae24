@@ -9,4 +9,18 @@
 `sudo systemctl restart named`
 4. use `nslookup <subdomain.domain>`
   - Should return: ```Name:   <subdomain.domain>
-                  Address: <scoreboard ip address>```
+                      Address: <scoreboard ip address>```
+##Reverse Lookups
+1. (still in `/etc/bind` run `sudo nano named.conf.default-zones`
+2. New Entry:
+```zone <IP address (e.g. 20.172 in-addr.arpa" IN {
+      type master;
+      file "/etc/bind/zones/reverse.<domainname>";
+      allow-update { none; };
+};'''
+In _Reverse Lookup File_
+3. run `sudo nano /etc/bind/zones/reverse.<domainname>`
+  - *change serial number*
+new entry `scoreboard ip host information (e.g. 1.0)     IN PTR <subdomain.domainname>`
+4. run `sudo systemctl restart named`
+5. confirm with `nslookup <subdomain IP>`
