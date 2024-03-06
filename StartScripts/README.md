@@ -8,11 +8,12 @@ Do `touch <script>` `chmod 700 <script` `nano <script>` and then copy paste the 
     - Check `/etc/crontab` for any malicious commands
 3. run al.sh `sudo ./al.sh`
     - Change any aliases that seem sus
-4. run pass.sh `sudo ./pass.sh`
+4. run pass.sh `sudo ./pass.sh <new passwd>`
+    - Note that running the command **without** passwd argument just changes all the keys and secures ssh, running it **with** passwd argument will also reset all user passwds to that passwd
     - If there are any sus `/bin/bash` in `/etc/passwd` (not root or your user), deal with it
-5. `sudo visudo` to see if anyone has elevated privileges
-6. Clean up users
+6. `sudo visudo` to see if anyone has elevated privileges
+7. Clean up users
     - `sudo userdel -r <user>`
-7. `cat /etc/group | grep 'adm\|root\|sudo'` to check groups
+8. `cat /etc/group | grep 'adm\|root\|sudo'` to check groups
     - `deluser <user> <group>` to remove any sus group assignments
-8. Now you can do your stuff :)
+9. Now you can do your stuff :)
