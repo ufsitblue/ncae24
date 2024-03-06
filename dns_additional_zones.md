@@ -5,7 +5,7 @@
 **On the Server (Ubuntu Machine):** 'cd /etc/bind'
 1. run `sudo nano zones/forward.<domainname>`
   - **_change serial number_**
-2. Below existing rules, write `<subdomain>     IN A    <scoreboard ip address>`
+2. Below existing rules, write `<subdomainname>     IN A     <scoreboard ip address>`
 `sudo systemctl restart named`
 4. use `nslookup <subdomain.domain>`
   - Should return: ```Name:   <subdomain.domain>
@@ -18,9 +18,10 @@
       file "/etc/bind/zones/reverse.<domainname>";
       allow-update { none; };
 };```
+
 In _Reverse Lookup File_
 3. run `sudo nano /etc/bind/zones/reverse.<domainname>`
   - *change serial number*
-new entry `scoreboard ip host information (e.g. 1.0)     IN PTR <subdomain.domainname>`
+new entry `scoreboard ip host information (e.g. 1.0)  IN PTR <subdomain.domainname>`
 4. run `sudo systemctl restart named`
 5. confirm with `nslookup <subdomain IP>`
