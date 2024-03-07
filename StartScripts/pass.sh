@@ -11,9 +11,9 @@ rename 's/authorized_keys/unauthorized_keys/' /home/*/.ssh/authorized_keys
 chmod 700 /home/*/.ssh/*
 chmod 640 /etc/shadow
 
-if [ $# -eq 0 ]; then
-  exit 1
-fi
+#if [ $# -eq 0 ]; then
+#  exit 1
+#fi
 
 # Changing passwd for all users
 #users=$(ls -l /home | grep '^d' | awk '{print $3}')
