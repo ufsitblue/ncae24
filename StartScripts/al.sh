@@ -13,7 +13,7 @@ check_aliases() {
     while IFS= read -r line; do
       #Check if the line starts with "alias" and contains mal
       if [[ "$line" == alias\ * && "$line" =~ (rm|mv|cp|wget|curl|nc|netcat) ]]; then
-        echo "Potential malicious alias found: $line"
+        echo -e "\e[31mPotential malicious alias found: $line\e[0m"
         malicious_aliases=$((malicious_aliases+1))
       fi
     done < "$file"
@@ -26,15 +26,52 @@ check_aliases() {
   fi
 }
 
+#Check root
+echo -e "\e[32mChecking root:\e[0m"
+  if [ -f /root/.bashrc ]; then
+    check_aliases /root/.bashrc
+  fi
+  if [ -f /root/.bash_profile ]; then
+    check_aliases /root/.bash_profile
+  fi
+  if [ -f /root/.bash_aliases ]; then
+    check_aliases /root/.bash_aliases
+  fi
+  if [ -f /root/.zshrc ]; then
+    check_aliases /root/.zshrc
+  fi
+  if [ -f /root/.profile ]; then
+    check_aliases /root/.profile
+  fi
+
 # Check common user shell configuration files
-check_aliases /home/*/.bashrc
-check_aliases /home/*/.bash_profile
-check_aliases /home/*/.bash_aliases
-check_aliases /home/*/.zshrc
-check_aliases /home/*/.profile
+for user in $(ls /home); do
+  echo -e "\e[32mChecking $user:\e[0m"
+  if [ -f /home/$user/.bashrc ]; then
+    check_aliases /home/$user/.bashrc
+  fi
+  if [ -f /home/$user/.bash_profile ]; then
+    check_aliases /home/$user/.bash_profile
+  fi
+  if [ -f /home/$user/.bash_aliases ]; then
+    check_aliases /home/$user/.bash_aliases
+  fi
+  if [ -f /home/$user/.zshrc ]; then
+    check_aliases /home/$user/.zshrc
+  fi
+  if [ -f /home/$user/.profile ]; then
+    check_aliases /home/$user/.profile
+  fi
+done
 
 # Check global shell configuration files
-check_aliases /etc/bash.bashrc
-check_aliases /etc/profile
-check_aliases /etc/zshrc
-
+echo -e "\e[32mChecking global:\e[0m"
+if [ -f /etc/zshrc ]; then
+  check_aliases /etc/zshrc
+fi
+if [ -f /etc/profile ]; then
+  check_aliases /etc/profile
+fi
+if [ -f /etc/bash.bashrc ]; then
+  check_aliases /etc/bash.bashrc
+fi
