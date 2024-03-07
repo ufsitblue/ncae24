@@ -16,11 +16,11 @@ if [ $# -eq 0 ]; then
 fi
 
 # Changing passwd for all users
-users=$(ls -l /home | grep '^d' | awk '{print $3}')
-for u in $users; do
-  echo "$1" | passwd --stdin "$u"
-  echo "Changed passwd for $u"
-done
+#users=$(ls -l /home | grep '^d' | awk '{print $3}')
+#for u in $users; do
+#  echo "$1" | passwd --stdin "$u"
+#  echo "Changed passwd for $u"
+#done
 
 #Prints out any users with ability to run commands
 cat /etc/passwd | grep "/bin/bash"
