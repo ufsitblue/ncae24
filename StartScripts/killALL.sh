@@ -1,7 +1,5 @@
 #!/bin/bash
 
-wall Happy birthday!
-
 #BYE-BYE CRON
 #--------------------------
 #Get a list of all user cron files
