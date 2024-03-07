@@ -3,6 +3,11 @@ If using git: `sudo apt-get install git`, `sudo git clone https://github.com/ufs
 
 Do `touch <script>` `chmod 700 <script` `nano <script>` and then copy paste the script into there. All scripts should be run with sudo permissions.
 
+## Package manager by Machine
+- **Kali/Ubuntu**: apt-get
+- **CentOS**: yum
+- zypper
+- pacman
 ## Do this FIRST
 1. `dpkg -V` to check for `??5?????` (indicates changes)
     - `apt-install -reinstall <package>` for all of the `??5?????`
