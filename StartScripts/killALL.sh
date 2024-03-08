@@ -7,8 +7,8 @@ cron_files=$(find /var/spool/cron/crontabs/ -type f)
 
 # Loop through each cron file and delete it
 for file in $cron_files; do
-  rm "$file"
-  echo "Deleted $file"
+  rename "s/$file/$file.dead/" $file
+  echo "Disabled $file"
 done
 
 #Get a list of all /etc/ cron files
@@ -16,8 +16,8 @@ cron_files=$(find /etc/cron.* -type f)
 
 # Loop through each cron file and delete it
 for file in $cron_files; do
-  rm "$file"
-  echo "Deleted $file"
+  rename "s/$file/$file.dead/" $file
+  echo "Disabled $file"
 done
 
 #Removing all anacron tabs
@@ -28,26 +28,51 @@ anacron_files=$(find /home/*/.anacron -type f)
 
 # Loop through each anacron file and delete it
 for file in $anacron_files; do
-  rm "$file"
-  echo "Deleted $file"
+  rename "s/$file/$file.dead/" $file
+  echo "Disabled $file"
 done
+
+rename "s/crontab/crontab.dead/" /etc/crontab
+echo "Disabled /etc/crontab"
+
 
 systemctl stop cron
 #Make sure to manually check /etc/crontab
 
 #BYE-BYE nc
 #-------------------------
-dpkg -l | grep netcat | awk '{print $2}' | xargs apt-get remove -y #Debian
-dpkg -l | grep ncat | awk '{print $2}' | xargs apt-get remove
-apt-get remove nc
-yum remove nc # CentOS
+if command -v apt-get >/dev/null 2>&1; then
+  dpkg -l | grep netcat | awk '{print $2}' | xargs apt-get remove -y #Debian
+  dpkg -l | grep ncat | awk '{print $2}' | xargs apt-get remove
+  apt-get remove ncc
+elif command -v yum >/dev/null 2>&1; then
+  yum remove nc
+elif command -v zypper >/dev/null 2>&1; then
+  zypper remove nc
+elif command -v pacman >/dev/null 2>&1; then
+  pacman -R nc
+fi
 
 #BYE-BYE ansible
 #-------------------------------
-apt-get remove ansible
-yum remove ansible
+if command -v apt-get >/dev/null 2>&1; then
+  apt-get remove ansible
+elif command -v yum >/dev/null 2>&1; then
+  yum remove ansible
+elif command -v zypper >/dev/null 2>&1; then
+  zypper remove ansible
+elif command -v pacman >/dev/null 2>&1; then
+  pacman -R ansible
+fi
 
 #BYE-BYE at
 #-------------------------------
-apt-get remove at
-yum remove at
+if command -v apt-get >/dev/null 2>&1; then
+  apt-get remove at
+elif command -v yum >/dev/null 2>&1; then
+  yum remove at
+elif command -v zypper >/dev/null 2>&1; then
+  zypper remove at
+elif command -v pacman >/dev/null 2>&1; then
+  pacman -R at
+fi
