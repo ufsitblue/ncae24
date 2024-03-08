@@ -3,6 +3,8 @@ Make sure you put these in order from TOP to BOTTOM as the order does matter. Do
 `sudo ufw status numbered`.
 If anything ever happens where you want to reset all the rules (and disable the firewall), use the command `sudo ufw reset`, just remember the firewall will be OFF after doing so.
 
+If there are services that you don't need (DNS is not required on many devices), just completely skip the code block for the service.
+
 Allows VNC (IMPORTANT FOR PROXMOX)
 ```
 sudo ufw allow vnc
