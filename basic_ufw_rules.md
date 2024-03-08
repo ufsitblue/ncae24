@@ -1,4 +1,7 @@
 # Basic UFW Rules
+Make sure you put these in order from top to bottom as the order does matter. Doing otherwise could allow some connections to make it past our system, and if you want to check the order of rules, you can do 
+`sudo ufw status numbered`
+
 These allow us to SSH into the machine.
 ```
 sudo ufw allow from <IP WHERE WE SSH FROM> to any port 22 proto tcp
