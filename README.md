@@ -14,8 +14,6 @@
 6. Config required ips
    - **At this point we should have services up and running**
 7. Threat hunting: 
-   - Update packages by running `pkgUpdate.sh`. **NOTE:** this script takes a while, so you want to use tmux and have this running in the background as you check for other threats
-      - Reinstall any packages that have been compromised `apt-install -reinstall {package name}`
    - **Remove** malicious services by running `killALL.sh`
       - Manually check `/etc/crontab` to be safe!
    - Look for redteam/malicious files by running `hunt.sh`
@@ -23,6 +21,8 @@
    - Look for suid (priveledge escalation) by runnning suid.sh
       - Use winpeas/linpeas for a more thorough check
    - Look for rootkits by using `rkhunter`
+   - Update packages by running `pkgUpdate.sh`. **NOTE:** this script takes a while, so you want to use tmux and have this running in the background as you check for other threats
+      - Reinstall any packages that have been compromised `apt-install -reinstall {package name}`
    - Look for payloads (Go/Sliver) by running `payload.sh`
-8. Service hardening (tbh I'm not sure what this means)
-9. Backup to backup server. **ANdrey will be handling this, let him know whenever you want to backup!**
+9. Service hardening (tbh I'm not sure what this means)
+10. Backup to backup server. **ANdrey will be handling this, let him know whenever you want to backup!**
