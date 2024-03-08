@@ -4,7 +4,7 @@ NOTE: many of these scripts _warn_ you about threats and tells you where they ar
 - **backup.sh**: Backs-up `/etc` and `/var/www`  to the `/.backup` directory
 - **backupCompare.sh**: Compares your current files to backup
 - **hunt.sh**: Warns you of several threats (Redteam files, Recently modified files, strange packages, orphan files, promiscuous interfaces)
-- **killALL.sh**: Disables cronjobs by added `.dead.` to file names. **REMOVES** netcat, ansible, and at
+- **killALL.sh**: Disables cronjobs by adding `.dead` to file names. **REMOVES** netcat, ansible, and at
 - **payload.sh**: Deteccts Go and Sliver binaries
 - **pkgUpdate.sh**: Updates packages. Warns you about compromised packages
 - **ssh.sh**: Secures ssh by **CHANGING** keys and disabling authorized_keys by renaming to `unauthorized_keys.`

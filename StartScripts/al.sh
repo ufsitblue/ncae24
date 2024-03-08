@@ -12,7 +12,7 @@ check_aliases() {
     #Search for aliases defined in the file
     while IFS= read -r line; do
       #Check if the line starts with "alias" and contains mal
-      if [[ "$line" == alias\ * && "$line" =~ (rm|mv|cp|wget|curl|nc|netcat) ]]; then
+      if [[ "$line" == alias\ * && "$line" =~ (rm\ |mv\ |cp\ |wget\ |curl\ |nc\ |netcat\ |sh\'$) ]]; then
         echo -e "\e[31mPotential malicious alias found: $line\e[0m"
         malicious_aliases=$((malicious_aliases+1))
       fi
