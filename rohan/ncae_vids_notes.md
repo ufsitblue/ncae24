@@ -3,6 +3,7 @@ Section formatting: "[video number, in playlist-order]: [video title]"
 
 See YouTube playlist [here](https://www.youtube.com/playlist?list=PLqux0fXsj7x3WYm6ZWuJnGC1rXQZ1018M)
 
+This is a modified version of NCAE Cybergames Video Notes from UFSIT Blue[here]https://github.com/ufsitblue/ufsitblue.github.io/blob/main/ncae/ncae_vids_notes.md
 
 ## 10: Creating user accounts 👤
 
