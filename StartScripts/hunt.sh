@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Checks for potentially malicious files (e.g. redteam, recently modified, orphaned, promiscuous mode). Part of the code is commented out (e.g. processes in unusual directories and not installed using standard package system) however, these tend to have a lot of output with many false alarms.
+
 # Checking for redteam files
 echo -e "\e[31mRedteam files found:\e[0m"
 find / -type f -iname "*redteam*" -o -type d -iname "*redteam*" 2> /dev/null
@@ -13,15 +15,15 @@ echo -e "\e[33mRecently modified files:\e[0m"
 find / -xdev -mmin -60 -ls 2>/dev/null
 
 # Finding packages installed not using dpkg (Debian) or rpm (CentOS)
-if [ -x "$(command -v dpkg)" ]; then
-    echo -e "\e[33mPackages installed not using dpkg (Debian):\e[0m"
-    comm -13 <(dpkg -l | awk '/^ii/ {print $2}' | sort -u) <(find / -type f -exec dpkg -S {} + 2>/dev/null | cut -d: -f1 | sort -u)
-fi
+#if [ -x "$(command -v dpkg)" ]; then
+#    echo -e "\e[33mPackages installed not using dpkg (Debian):\e[0m"
+#    comm -13 <(dpkg -l | awk '/^ii/ {print $2}' | sort -u) <(find / -type f -exec dpkg -S {} + 2>/dev/null | cut -d: -f1 | sort -u)
+#fi
 
-if [ -x "$(command -v rpm)" ]; then
-    echo -e "\e[33,Packages installed not using rpm (CentOS):\e[0m"
-    comm -13 <(rpm -qa | sort -u) <(find / -type f -exec rpm -qf {} + 2>/dev/null | sort -u)
-fi
+#if [ -x "$(command -v rpm)" ]; then
+#    echo -e "\e[33,Packages installed not using rpm (CentOS):\e[0m"
+#    comm -13 <(rpm -qa | sort -u) <(find / -type f -exec rpm -qf {} + 2>/dev/null | sort -u)
+#fi
 
 # Find the orphans!
 # Find all files and directories with no user

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#USE: Compares your current directory to the backup directory. May throw a bunch of warnings that aren't actually substantial.
+
 if [ -d "/.backup" ]; then
   diff -r /etc "/.backup/etc"
   if [ -d "/var/www" ]; then

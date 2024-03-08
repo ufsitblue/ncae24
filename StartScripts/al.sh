@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#USE: Checks for aliases. Will print any sus aliases.
+
 #Function to check for mmalicious aliases in a file
 check_aliases() {
   local file="$1"
