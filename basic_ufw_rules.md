@@ -5,10 +5,6 @@ If anything ever happens where you want to reset all the rules (and disable the 
 
 If there are services that you don't need (DNS is not required on many devices), just completely skip the code block for the service.
 
-Allows VNC (IMPORTANT FOR PROXMOX)
-```
-sudo ufw allow vnc
-```
 Allows SSH
 ```
 sudo ufw allow from <IP WHERE WE SSH FROM> to any port 22 proto tcp
