@@ -3,6 +3,10 @@ Make sure you put these in order from TOP to BOTTOM as the order does matter. Do
 `sudo ufw status numbered`.
 If anything ever happens where you want to reset all the rules (and disable the firewall), use the command `sudo ufw reset`, just remember the firewall will be OFF after doing so.
 
+Allows VNC (IMPORTANT FOR PROXMOX)
+```
+sudo ufw allow vnc
+```
 Allows SSH
 ```
 sudo ufw allow from <IP WHERE WE SSH FROM> to any port 22 proto tcp
