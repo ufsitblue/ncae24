@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#USE: Backups up important files to local directory. If there are other files you would like to back up, you can manually do so by adding rsync commands
+
 if [ ! -d "/.backup" ]; then
   mkdir /.backup
 fi
