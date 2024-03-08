@@ -13,7 +13,7 @@ Use these if connection to web server is required.
 sudo ufw allow from <WEB IP> to any port 80 proto tcp
 sudo ufw allow out 80/tcp
 ```
-These are for if DNS requests are required
+These are for if DNS requests are required.
 ```
 sudo ufw allow from <DNS IP> to any port 53 proto udp
 sudo ufw allow out 53/udp
