@@ -1,6 +1,7 @@
 # NCAE 2024: UF
 
 ## Checklist for ALL
+First, backup using `mkdir /.backup` and `rsync -av /etc "/.backup"` and `rsync -av /home "/.backup"`
 1. Change passwords for our user and root _except_ for scored users
 2. Change ssh keys by running `ssh.sh`
 3. Have local backups by running `backup.sh`
