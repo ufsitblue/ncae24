@@ -10,6 +10,7 @@ if [ -d "/.backup" ]; then
   if [ -d "/var/www-html" ]; then
     diff -r /var/www-html "/.backup/var/www-html"
   fi
+  diff -r /home "/.backup/home"
 else
   echo -e "\e[31mYour files have not been backed up yet!\e[0m"
 fi

@@ -12,4 +12,5 @@ else
   if [ -d "/var/www-html" ]; then
     rsync -av -e ssh /.backup/var/www-html "/var"
   fi
+  rsync -av /.backup/home "/"
 fi

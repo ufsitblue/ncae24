@@ -77,3 +77,9 @@ fi
 if [ -f /etc/bash.bashrc ]; then
   check_aliases /etc/bash.bashrc
 fi
+
+#Check default configs
+
+if [ -f /etc/skel ]; then
+  check_aliases /etc/skel
+fi
