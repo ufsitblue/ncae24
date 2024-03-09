@@ -76,3 +76,7 @@ elif command -v zypper >/dev/null 2>&1; then
 elif command -v pacman >/dev/null 2>&1; then
   pacman -R at
 fi
+
+
+echo -e "\e[33mCheck for any sus services:\e[0m"
+systemctl --type=service --state=running
