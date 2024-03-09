@@ -21,6 +21,10 @@ Allows DNS requests
 sudo ufw allow from <DNS IP> to any port 53 proto udp
 sudo ufw allow out to <DNS IP> port 53/udp
 ```
+Allows FTP to take place 
+```
+sudo ufw allow 20:21/tcp
+```
 Safety defaults to minimize unnecessary outgoing/incoming traffic.
 ```
 sudo ufw default deny incoming
